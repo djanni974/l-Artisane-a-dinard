@@ -11,7 +11,7 @@ import { siteConfig } from "@/data/site";
 
 export function Footer() {
   return (
-    <footer className="relative bg-[#2d4a4a] pt-16 pb-10 text-white/55">
+    <footer className="relative bg-[#2d4a4a] pt-16 pb-10 text-white/65">
       <div className="pointer-events-none absolute -top-px left-0 right-0 h-16 bg-gradient-to-b from-[#f5ebe0] to-transparent" />
 
       <div className="mx-auto max-w-6xl px-6">
@@ -55,6 +55,12 @@ export function Footer() {
               >
                 Mentions légales
               </Link>
+              <Link
+                href="/cgv"
+                className="text-sm transition-colors duration-300 hover:text-white"
+              >
+                CGV
+              </Link>
             </nav>
           </div>
 
@@ -95,7 +101,7 @@ export function Footer() {
 
         <Separator className="my-8 bg-white/10" />
 
-        <p className="text-center text-[10px] tracking-wide text-white/25">
+        <p className="text-center text-[10px] tracking-wide text-white/45">
           © 2026 L&apos;Artisane à Dinard — Tous droits réservés — Site réalisé
           par{" "}
           <a

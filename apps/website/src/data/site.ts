@@ -22,8 +22,8 @@ export const siteConfig = {
     full: "1 Place de Newquay, 35800 Dinard",
   },
   booking: {
-    url: "", // Planity ou SumUp — à remplir après RDV du 25 mars
-    provider: "Planity" as const,
+    url: "", // À remplir avec le lien Fresha de Pauline
+    provider: "Fresha" as const,
   },
   analytics: {
     plausibleDomain: "lartisane-dinard.fr",

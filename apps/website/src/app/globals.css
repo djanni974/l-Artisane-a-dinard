@@ -9,6 +9,10 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
+  --color-artisane-forest: var(--artisane-forest);
+  --color-artisane-gold: var(--artisane-gold);
+  --color-artisane-cream: var(--artisane-cream);
+  --color-artisane-gold-light: var(--artisane-gold-light);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -35,6 +39,12 @@
 }
 
 :root {
+  /* ─── L'Artisane design tokens ─── */
+  --artisane-forest: #2d4a4a;
+  --artisane-gold: #b8983e;
+  --artisane-cream: #f5ebe0;
+  --artisane-gold-light: rgba(184, 152, 62, 0.1);
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);

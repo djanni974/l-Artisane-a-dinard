@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const valeurs = [
   { icon: IconLeaf, label: "Naturel", description: "Des produits végétaux, sans ammoniaque ni composants agressifs, pour respecter vos cheveux et votre santé." },
-  { icon: IconEar, label: "Écoute", description: "Chaque visite commence par un échange pour comprendre vos envies, votre routine et vos besoins." },
+  { icon: IconEar, label: "Écoute", description: "Chaque visite commence par un échange pour comprendre vos envies, votre routine et vos besoins. C'est pour cela qu'un diagnostic capillaire vous est offert lors de votre première visite." },
   { icon: IconSparkles, label: "Soin du détail", description: "Du diagnostic à la touche finale, chaque geste est pensé pour un résultat sur mesure." },
   { icon: IconRecycle, label: "Éco-responsabilité", description: "Des emballages réduits, des formules biodégradables et une démarche respectueuse de l'environnement." },
 ];
@@ -30,13 +30,14 @@ export default function AProposPage() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
             <AnimateOnScroll animation="fade-in slide-in-from-left-12" duration="duration-1000">
-              <div className="overflow-hidden rounded-2xl shadow-2xl">
+              <div className="aspect-3/4 overflow-hidden rounded-2xl shadow-2xl">
                 <Image
-                  src="/images/pink-flowers-logo.png"
-                  alt="Portrait de Pauline Besnard, coloriste experte"
-                  width={500}
-                  height={667}
-                  className="h-auto w-full object-cover"
+                  src="/images/pauline.png"
+                  alt="Pauline Besnard dans son salon L'Artisane à Dinard"
+                  width={600}
+                  height={800}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="h-full w-full object-cover object-top"
                   priority
                 />
               </div>
@@ -68,6 +69,11 @@ export default function AProposPage() {
                 cœur du quartier Newquay à Dinard.
               </p>
               <p>
+                Ce qui la motive&nbsp;? Prendre le temps avec chaque personne,
+                accompagner sur la durée et voir ses clients repartir en se
+                sentant vraiment eux-mêmes.
+              </p>
+              <p>
                 Son positionnement est clair&nbsp;: une coiffure artisanale,
                 naturelle et personnalisée. Chaque client repart avec une coupe
                 et une couleur pensées pour lui, réalisées avec des produits
@@ -75,8 +81,9 @@ export default function AProposPage() {
               </p>
               <p>
                 Spécialisée en coloration végétale, balayages et soins naturels,
-                Pauline s&apos;est également formée à la beauté cosmétique et
-                aux soins de la peau pour une approche globale du bien-être.
+                Pauline s&apos;est également formée aux soins du cuir chevelu
+                et à la cosmétique naturelle, pour une approche globale du
+                bien-être capillaire.
               </p>
             </div>
           </AnimateOnScroll>
@@ -142,7 +149,7 @@ export default function AProposPage() {
                     />
                   </div>
                   <p className="font-serif text-sm font-medium">{label}</p>
-                  <p className="text-xs leading-relaxed text-[#2d4a4a]/50">{description}</p>
+                  <p className="text-xs leading-relaxed text-[#2d4a4a]/65">{description}</p>
                 </div>
               </AnimateOnScroll>
             ))}
@@ -153,6 +160,7 @@ export default function AProposPage() {
       <CtaSection
         title="Envie de découvrir le salon ?"
         subtitle="Prenez soin de vous."
+        description="30 minutes pour faire le point sur vos cheveux, comprendre vos envies et vous proposer un soin adapté — bilan capillaire offert."
         buttonText="Prendre rendez-vous"
         secondaryLink={{ label: "Voir les prestations", href: "/prestations" }}
       />

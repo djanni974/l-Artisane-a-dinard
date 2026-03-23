@@ -6,6 +6,8 @@ import {
   IconClock,
 } from "@tabler/icons-react";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
+import { ContactForm } from "@/components/contact-form";
+import { ConsentMap } from "@/components/consent-map";
 import { CtaButton } from "@/components/layout/cta-button";
 import { siteConfig } from "@/data/site";
 
@@ -39,6 +41,15 @@ export default function ContactPage() {
             <CtaButton className="shadow-lg text-base">
               Réserver en ligne
             </CtaButton>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* ═══════════════════════ FORMULAIRE DE CONTACT ═══════════════════════ */}
+      <section className="pb-16 md:pb-20">
+        <div className="mx-auto max-w-xl px-6">
+          <AnimateOnScroll animation="fade-in slide-in-from-bottom-4">
+            <ContactForm />
           </AnimateOnScroll>
         </div>
       </section>
@@ -115,7 +126,7 @@ export default function ContactPage() {
                     <li
                       key={day}
                       className={`flex items-center justify-between text-sm ${
-                        closed ? "text-[#2d4a4a]/35" : "text-[#2d4a4a]/70"
+                        closed ? "text-[#2d4a4a]/50" : "text-[#2d4a4a]/70"
                       }`}
                     >
                       <span className="font-medium">{day}</span>
@@ -133,19 +144,7 @@ export default function ContactPage() {
       <section className="pb-16 md:pb-20">
         <div className="mx-auto max-w-4xl px-6">
           <AnimateOnScroll animation="fade-in">
-            <div className="overflow-hidden rounded-2xl shadow-sm">
-              <iframe
-                src="https://www.google.com/maps?q=L%27Artisane+1+Place+de+Newquay+35800+Dinard+France&z=16&output=embed"
-                width="100%"
-                height="300"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="L'Artisane à Dinard — 1 Place de Newquay"
-                className="h-[200px] w-full md:h-[300px]"
-              />
-            </div>
+            <ConsentMap />
           </AnimateOnScroll>
         </div>
       </section>

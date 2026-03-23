@@ -5,47 +5,66 @@ import {
   IconDroplet,
 } from "@tabler/icons-react";
 
+// ⚠️ TOUS LES PRIX SONT DES PLACEHOLDERS — à remplacer après le RDV du 25 mars.
+
 export const prestations = [
   {
     icon: IconScissors,
     title: "Coupe & Brushing",
     description:
-      "Un moment rien que pour vous, adapté à votre style et à la nature de vos cheveux.",
+      "On prend le temps de comprendre votre style, la texture de vos cheveux et ce qui vous met en valeur au quotidien.",
     badge: "Sur mesure",
-    items: ["Coupe femme / homme", "Coupe + brushing", "Brushing seul"],
+    startingPrice: 25,
+    highlight: null,
+    kydra: null,
+    items: [
+      { name: "Coupe femme", price: "38 €" },
+      { name: "Coupe homme", price: "25 €" },
+      { name: "Coupe + brushing", price: "52 €" },
+      { name: "Brushing seul", price: "28 €" },
+    ],
   },
   {
     icon: IconPalette,
     title: "Coloration & Balayage",
     description:
-      "Des reflets qui bougent avec la lumière, posés avec précision pour un résultat qui vous ressemble.",
+      "Des reflets posés avec précision, qui bougent avec la lumière. Formules sans ammoniaque, adaptées à votre base naturelle.",
     badge: "Expertise",
+    startingPrice: 45,
+    highlight: null,
+    kydra: "Pauline travaille avec Kydra Jelly Gloss — kératine végétale + acide hyaluronique, +50\u00a0% de brillance.",
     items: [
-      "Coloration complète",
-      "Balayage",
-      "Mèches",
-      "Retouche couleur",
+      { name: "Coloration complète", price: "65 €" },
+      { name: "Balayage", price: "75 €" },
+      { name: "Mèches", price: "55 €" },
+      { name: "Retouche couleur", price: "45 €" },
     ],
   },
   {
     icon: IconLeaf,
     title: "Coloration végétale",
     description:
-      "Une couleur douce et brillante, à base de pigments végétaux — sans ammoniaque, sans compromis.",
+      "Idéale pour les cuirs chevelus sensibles ou en transition depuis la chimique : pas d'ammoniaque, pas d'odeur forte — juste de la brillance et des reflets naturels. Gamme fabriquée en France.",
     badge: "Végétal",
-    items: ["Coloration 100% végétale, sans ammoniaque"],
+    startingPrice: 55,
+    highlight: null,
+    kydra: "Pauline travaille avec la coloration Kydra Botanique — 91\u00a0% naturelle, aux 5 plantes tinctoriales françaises.",
+    items: [{ name: "Coloration 100\u00a0% végétale", price: "55 €" }],
   },
   {
     icon: IconDroplet,
     title: "Soins capillaires bio",
     description:
-      "Vos cheveux sont secs, ternes ou fragilisés ? On trouve le bon soin et on prend le temps de l'appliquer.",
+      "Cheveux secs, ternes ou fragilisés ? Pauline diagnostique et applique le soin adapté, avec des produits naturels sans ammoniaque.",
     badge: "Sur mesure",
+    startingPrice: 20,
+    highlight: null,
+    kydra: "Pauline travaille avec les Élixirs Botaniques Kydra — jusqu'à 95\u00a0% naturels, personnalisés selon votre diagnostic capillaire.",
     items: [
-      "Soin nutrition",
-      "Soin réparateur",
-      "Masque",
-      "Bilan capillaire",
+      { name: "Soin nutrition", price: "25 €" },
+      { name: "Soin réparateur", price: "30 €" },
+      { name: "Masque", price: "20 €" },
+      { name: "Bilan capillaire", price: "Offert" },
     ],
   },
 ] as const;

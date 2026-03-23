@@ -57,7 +57,7 @@ export function PrestationsPreview() {
                         {badge}
                       </Badge>
                     </div>
-                    <p className="text-sm leading-relaxed text-[#2d4a4a]/55">
+                    <p className="text-sm leading-relaxed text-[#2d4a4a]/65">
                       {description}
                     </p>
                   </div>

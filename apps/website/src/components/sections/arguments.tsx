@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { IconLeaf, IconScissors, IconHeart } from "@tabler/icons-react";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 
@@ -31,7 +32,7 @@ export function Arguments() {
           className="mb-16 text-center"
         >
           <h2 className="font-serif text-3xl font-light md:text-4xl">
-            Pourquoi mes clientes reviennent.
+            Pourquoi on revient.
           </h2>
         </AnimateOnScroll>
 
@@ -47,13 +48,41 @@ export function Arguments() {
                   <Icon className="h-7 w-7 text-[#b8983e]" stroke={1.5} />
                 </div>
                 <h3 className="mb-2 font-serif text-xl font-medium">{title}</h3>
-                <p className="text-sm leading-relaxed text-[#2d4a4a]/55">
+                <p className="text-sm leading-relaxed text-[#2d4a4a]/65">
                   {text}
                 </p>
               </div>
             </AnimateOnScroll>
           ))}
         </div>
+
+        {/* Partenaire */}
+        <AnimateOnScroll
+          animation="fade-in"
+          delay="delay-500"
+          className="mt-16"
+        >
+          <div className="mx-auto max-w-xs border-t border-[#2d4a4a]/10 pt-6">
+            <a
+              href="https://kydralesalon.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 transition-opacity duration-300 hover:opacity-70"
+            >
+              <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#2d4a4a]/35">
+                Salon partenaire
+              </span>
+              <span className="h-3 w-px bg-[#2d4a4a]/15" />
+              <Image
+                src="/images/kydra-logo.png"
+                alt="Kydra Le Salon — produits professionnels éco-conçus"
+                width={80}
+                height={80}
+                className="h-8 w-8 object-contain opacity-45"
+              />
+            </a>
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

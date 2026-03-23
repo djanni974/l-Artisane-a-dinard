@@ -67,7 +67,7 @@ export default function HomePage() {
               <h2 className="mt-4 font-serif text-3xl font-light leading-snug text-white md:text-4xl">
                 Sublimer votre couleur, sans compromis.
               </h2>
-              <p className="mt-5 text-[15px] leading-relaxed text-white/55">
+              <p className="mt-5 text-[15px] leading-relaxed text-white/65">
                 Des pigments végétaux, zéro ammoniaque, et un résultat lumineux
                 qui respecte vos cheveux sur la durée.
               </p>
@@ -96,6 +96,7 @@ export default function HomePage() {
               alt="Peignes en bois naturels avec le logo L'Artisane"
               width={800}
               height={1067}
+              sizes="(max-width: 768px) 100vw, 28rem"
               className="w-full"
             />
             <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-[#2d4a4a]/80 via-[#2d4a4a]/50 to-transparent px-6 pb-8 pt-20 text-center md:px-10 md:pb-10 md:pt-28">
@@ -118,7 +119,7 @@ export default function HomePage() {
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <AnimateOnScroll animation="fade-in">
-            <p className="text-sm text-[#2d4a4a]/55">
+            <p className="text-sm text-[#2d4a4a]/65">
               Plus de réalisations sur{" "}
               <a
                 href={siteConfig.social.instagram}
@@ -141,7 +142,7 @@ export default function HomePage() {
       <CtaSection
         title="Votre première visite ?"
         subtitle="Bilan capillaire gratuit."
-        buttonText="Réserver maintenant"
+        buttonText="Prendre rendez-vous"
       />
     </div>
   );

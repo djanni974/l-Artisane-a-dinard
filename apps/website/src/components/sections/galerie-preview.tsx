@@ -37,7 +37,7 @@ export function GaleriePreview() {
           <h2 className="font-serif text-3xl font-light md:text-4xl">
             Le travail parle de lui-même.
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-[#2d4a4a]/50">
+          <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-[#2d4a4a]/65">
             Chaque détail du salon reflète notre exigence d&apos;artisanat et
             d&apos;élégance.
           </p>
@@ -64,6 +64,7 @@ export function GaleriePreview() {
                   alt={alt}
                   width={400}
                   height={533}
+                  sizes="(max-width: 768px) 50vw, 25vw"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>

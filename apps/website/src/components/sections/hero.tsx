@@ -41,14 +41,14 @@ export function Hero() {
                 </h1>
               </div>
               <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 fill-mode-[both]">
-                <p className="font-serif text-xl tracking-wide text-[#2d4a4a]/60 md:text-2xl">
+                <p className="font-serif text-xl tracking-wide text-[#2d4a4a]/70 md:text-2xl">
                   Pauline Besnard — coloriste experte
                 </p>
               </div>
             </div>
 
             <div className="animate-in fade-in duration-700 delay-500 fill-mode-[both]">
-              <p className="mx-auto max-w-md text-[15px] leading-relaxed text-[#2d4a4a]/55">
+              <p className="mx-auto max-w-md text-[15px] leading-relaxed text-[#2d4a4a]/65">
                 Ici, on prend le temps. Le temps de comprendre vos cheveux, de
                 choisir la bonne formule, et de vous offrir un moment rien
                 qu&apos;à vous avec des produits doux et respectueux.
@@ -93,7 +93,7 @@ export function Hero() {
                     alt="Illustration de la façade du salon L'Artisane à Dinard"
                     width={480}
                     height={560}
-                    style={{ width: "auto", height: "auto" }}
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="relative rounded-2xl"
                     priority
                   />

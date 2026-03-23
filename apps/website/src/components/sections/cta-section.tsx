@@ -14,8 +14,8 @@ interface CtaSectionProps {
 export function CtaSection({
   title = "Votre première visite ?",
   subtitle = "On commence par se connaître.",
-  description = "Pauline prend le temps de comprendre vos cheveux, votre routine et vos envies bilan capillaire offert.",
-  buttonText = "Réserver maintenant",
+  description = "Pauline prend le temps de comprendre vos cheveux, votre routine et vos envies. Bilan capillaire offert.",
+  buttonText = "Prendre rendez-vous",
   secondaryLink,
 }: CtaSectionProps) {
   return (
@@ -44,7 +44,7 @@ export function CtaSection({
                 {subtitle}
               </h2>
               {description && (
-                <p className="mx-auto mb-8 max-w-md text-sm leading-relaxed text-white/50">
+                <p className="mx-auto mb-8 max-w-md text-sm leading-relaxed text-white/65">
                   {description}
                 </p>
               )}
