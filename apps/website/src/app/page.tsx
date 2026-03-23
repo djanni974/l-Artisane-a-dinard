@@ -127,7 +127,7 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 font-medium text-[#2d4a4a] underline underline-offset-4 transition-colors hover:text-[#b8983e]"
               >
-                <IconBrandInstagram className="h-4 w-4" stroke={1.5} />
+                <IconBrandInstagram className="h-5 w-5" stroke={2} />
                 @{siteConfig.owner.instagram}
               </a>
             </p>

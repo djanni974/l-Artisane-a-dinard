@@ -61,6 +61,12 @@ export function Footer() {
               >
                 CGV
               </Link>
+              <Link
+                href="/plan-du-site"
+                className="text-sm transition-colors duration-300 hover:text-white"
+              >
+                Plan du site
+              </Link>
             </nav>
           </div>
 
