@@ -1,0 +1,22 @@
+nom: Soins capillaires bio
+description: >-
+  Cheveux secs, ternes ou fragilisés? Pauline diagnostique et applique le soin
+  adapté, avec des
+
+  produits naturels sans ammoniaque.
+badge: Sur Mesure
+icone: droplet
+prixDepart: 20
+kydra: >-
+  Pauline travaille avec les Elixirs Botaniques Kydra, jusqu'a 95 % naturel
+  personnalisé selon votre diagnostic capillaire. 
+ordre: 0
+items:
+  - nom: Soin nutrition
+    prix: 25 €
+  - nom: soin reparateur
+    prix: 30 €
+  - nom: Masque
+    prix: 20 €
+  - nom: Bilan capillaire
+    prix: Offert
