@@ -2,10 +2,12 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { InteractiveHoverButton } from "@/components/interactive-hover-button";
 import { IconArrowRight, IconChevronDown } from "@tabler/icons-react";
-import { siteConfig } from "@/data/site";
 
-export function Hero() {
-  const bookingHref = siteConfig.booking.url || siteConfig.owner.phoneHref;
+export function Hero({
+  bookingHref,
+}: {
+  bookingHref: string;
+}) {
 
   return (
     <section className="relative flex min-h-[calc(100svh-4rem)] flex-col overflow-hidden">
@@ -59,9 +61,9 @@ export function Hero() {
               <div className="flex flex-wrap justify-center gap-4">
                 <a
                   href={bookingHref}
-                  target={siteConfig.booking.url ? "_blank" : undefined}
+                  target={bookingHref.startsWith("http") ? "_blank" : undefined}
                   rel={
-                    siteConfig.booking.url ? "noopener noreferrer" : undefined
+                    bookingHref.startsWith("http") ? "noopener noreferrer" : undefined
                   }
                 >
                   <InteractiveHoverButton className="shadow-lg">

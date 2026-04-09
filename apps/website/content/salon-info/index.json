@@ -1,0 +1,22 @@
+{
+  "nom": "L'Artisane",
+  "description": "Salon de coiffure artisanal à Dinard. Pauline Besnard, coloriste experte spécialisée en coloration végétale, balayage et soins naturels.",
+  "ownerName": "Pauline Besnard",
+  "ownerTitle": "Coloriste experte",
+  "telephone": "06 18 38 54 86",
+  "email": "",
+  "instagram": "l.artisane_a_dinard",
+  "bookingUrl": null,
+  "adresseRue": "1 Place de Newquay",
+  "adresseVille": "Dinard",
+  "adresseCodePostal": "35800",
+  "horaires": [
+    { "jour": "Lundi", "heures": "Fermé", "ferme": true },
+    { "jour": "Mardi", "heures": "9h – 19h", "ferme": false },
+    { "jour": "Mercredi", "heures": "9h – 19h", "ferme": false },
+    { "jour": "Jeudi", "heures": "9h – 19h", "ferme": false },
+    { "jour": "Vendredi", "heures": "9h – 19h", "ferme": false },
+    { "jour": "Samedi", "heures": "9h – 17h", "ferme": false },
+    { "jour": "Dimanche", "heures": "Fermé", "ferme": true }
+  ]
+}

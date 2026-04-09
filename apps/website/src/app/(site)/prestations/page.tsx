@@ -5,7 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { CtaSection } from "@/components/sections/cta-section";
-import { prestations } from "@/data/prestations";
+import { reader } from "@/lib/keystatic";
+import { iconMap, type IconSlug } from "@/lib/icon-map";
 
 export const metadata: Metadata = {
   title:
@@ -14,7 +15,23 @@ export const metadata: Metadata = {
     "Découvrez toutes les prestations de L'Artisane à Dinard : coupe, coloration végétale sans ammoniaque, balayage, soins capillaires bio. Bilan capillaire gratuit.",
 };
 
-export default function PrestationsPage() {
+export default async function PrestationsPage() {
+  const services = await reader.collections.services.all();
+  const prestations = services
+    .sort((a, b) => (a.entry.ordre ?? 0) - (b.entry.ordre ?? 0))
+    .map((s) => ({
+      icon: iconMap[s.entry.icone as IconSlug] || iconMap.scissors,
+      title: s.entry.nom,
+      description: s.entry.description,
+      badge: s.entry.badge,
+      startingPrice: s.entry.prixDepart,
+      kydra: s.entry.kydra || null,
+      highlight: null as string | null,
+      items: s.entry.items.map((item) => ({
+        name: item.nom,
+        price: item.prix,
+      })),
+    }));
   return (
     <div>
       {/* ═══════════════════════ HEADER ═══════════════════════ */}

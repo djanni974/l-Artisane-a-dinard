@@ -7,12 +7,22 @@ import {
 } from "@tabler/icons-react";
 import { Separator } from "@/components/ui/separator";
 import { navigation } from "@/data/navigation";
-import { siteConfig } from "@/data/site";
+import { getSalonInfo } from "@/lib/get-site-config";
 
-export function Footer() {
+export async function Footer() {
+  const salonInfo = await getSalonInfo();
+
+  const address = salonInfo?.address.full || "1 Place de Newquay, 35800 Dinard";
+  const phone = salonInfo?.owner.phone || "06 18 38 54 86";
+  const phoneHref = salonInfo?.owner.phoneHref || "tel:+33618385486";
+  const instagramUrl = salonInfo?.social.instagram || "https://www.instagram.com/l.artisane_a_dinard";
+  const instagramHandle = salonInfo?.owner.instagram || "l.artisane_a_dinard";
+  const developerName = salonInfo?.developer.name || "Djanni Studio";
+  const developerUrl = salonInfo?.developer.url || "https://djannistudio.fr";
+
   return (
     <footer className="relative bg-[#2d4a4a] pt-16 pb-10 text-white/65">
-      <div className="pointer-events-none absolute -top-px left-0 right-0 h-16 bg-gradient-to-b from-[#f5ebe0] to-transparent" />
+      <div className="pointer-events-none absolute -top-px left-0 right-0 h-16 bg-linear-to-b from-[#f5ebe0] to-transparent" />
 
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-10 md:grid-cols-3 md:gap-8">
@@ -78,18 +88,18 @@ export function Footer() {
             <div className="flex flex-col gap-3 text-sm">
               <span className="inline-flex items-center gap-2">
                 <IconMapPin className="h-4 w-4 shrink-0" stroke={1.5} />
-                {siteConfig.address.full}
+                {address}
               </span>
               <a
-                href={siteConfig.owner.phoneHref}
+                href={phoneHref}
                 className="inline-flex items-center gap-2 transition-colors duration-300 hover:text-white"
                 aria-label="Appeler le salon"
               >
                 <IconPhone className="h-4 w-4 shrink-0" stroke={1.5} />
-                {siteConfig.owner.phone}
+                {phone}
               </a>
               <a
-                href={siteConfig.social.instagram}
+                href={instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 transition-colors duration-300 hover:text-[#E1306C]"
@@ -99,7 +109,7 @@ export function Footer() {
                   className="h-4 w-4 shrink-0"
                   stroke={1.5}
                 />
-                @{siteConfig.owner.instagram}
+                @{instagramHandle}
               </a>
             </div>
           </div>
@@ -107,18 +117,26 @@ export function Footer() {
 
         <Separator className="my-8 bg-white/10" />
 
-        <p className="text-center text-[10px] tracking-wide text-white/45">
-          © 2026 L&apos;Artisane à Dinard — Tous droits réservés — Site réalisé
-          par{" "}
+        <div className="flex flex-col items-center gap-2">
+          <p className="text-center text-[10px] tracking-wide text-white/45">
+            © 2026 L&apos;Artisane à Dinard — Tous droits réservés — Site
+            réalisé par{" "}
+            <a
+              href={developerUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-white/50"
+            >
+              {developerName}
+            </a>
+          </p>
           <a
-            href={siteConfig.developer.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-colors hover:text-white/50"
+            href="/keystatic"
+            className="text-[9px] tracking-wide text-white/20 transition-colors hover:text-white/40"
           >
-            {siteConfig.developer.name}
+            Administration
           </a>
-        </p>
+        </div>
       </div>
     </footer>
   );

@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import {
   IconBrandInstagram,
   IconArrowRight,
+  IconChevronLeft,
+  IconChevronRight,
   IconX,
 } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
@@ -17,7 +19,6 @@ import {
 } from "@/components/ui/dialog";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { CtaSection } from "@/components/sections/cta-section";
-import { siteConfig } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 const categories = [
@@ -28,77 +29,6 @@ const categories = [
 ] as const;
 
 type CategoryId = (typeof categories)[number]["id"];
-
-const photos: {
-  src: string;
-  alt: string;
-  description: string;
-  category: Exclude<CategoryId, "all">;
-}[] = [
-  {
-    src: "/images/logo-gold.png",
-    alt: "Coloration végétale cuivrée sur base châtain",
-    description:
-      "Idéale pour apporter de la lumière sans abîmer le cheveu — pigments végétaux, sans ammoniaque.",
-    category: "colorations",
-  },
-  {
-    src: "/images/logo-hair-golden.png",
-    alt: "Balayage naturel aux reflets dorés",
-    description:
-      "Balayage en technique libre pour un fondu naturel — pigments végétaux, zéro ammoniaque.",
-    category: "colorations",
-  },
-  {
-    src: "/images/combs-logo-gold.png",
-    alt: "Peignes en bois naturels",
-    description:
-      "Antistatiques et doux pour le cuir chevelu, ils respectent la fibre capillaire sans plastique.",
-    category: "soins",
-  },
-  {
-    src: "/images/pink-flowers-logo.png",
-    alt: "Produits naturels et bio",
-    description:
-      "Soins certifiés bio, sélectionnés pour leur efficacité et leur respect du cheveu et de l'environnement.",
-    category: "soins",
-  },
-  {
-    src: "/images/facade-illustration-clean.png",
-    alt: "Façade du salon L'Artisane à Dinard",
-    description:
-      "Un écrin chaleureux au cœur de Dinard, pensé pour un moment de détente et de soin.",
-    category: "salon",
-  },
-  {
-    src: "/images/carte-visite.png",
-    alt: "Carte de visite L'Artisane",
-    description:
-      "L'identité artisanale du salon : un savoir-faire sur mesure, une approche personnalisée.",
-    category: "salon",
-  },
-  {
-    src: "/images/logo-teal.png",
-    alt: "Ambiance du salon — tons verts apaisants",
-    description:
-      "Palette naturelle inspirée de la Côte d'Émeraude — couleurs douces et matières brutes.",
-    category: "salon",
-  },
-  {
-    src: "/images/logo-lavender.png",
-    alt: "Détail décoration — lavande et douceur",
-    description:
-      "Touches de lavande et textures végétales pour une atmosphère cocooning.",
-    category: "salon",
-  },
-  {
-    src: "/images/logo-full-gold.png",
-    alt: "Coloration dorée — avant/après",
-    description:
-      "Passage d'une base terne à un doré lumineux grâce à une coloration 100 % végétale.",
-    category: "colorations",
-  },
-];
 
 const ctaByCategory: Record<
   CategoryId,
@@ -122,9 +52,26 @@ const ctaByCategory: Record<
   },
 };
 
-export default function GaleriePage() {
+export type GalleryPhoto = {
+  src: string;
+  alt: string;
+  description: string;
+  category: Exclude<CategoryId, "all">;
+};
+
+export function GalleryContent({
+  photos,
+  instagramUrl,
+  instagramHandle,
+}: {
+  photos: GalleryPhoto[];
+  instagramUrl: string;
+  instagramHandle: string;
+}) {
   const [activeFilter, setActiveFilter] = useState<CategoryId>("all");
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const [direction, setDirection] = useState<"left" | "right">("right");
+  const [animKey, setAnimKey] = useState(0);
 
   const filtered =
     activeFilter === "all"
@@ -132,6 +79,28 @@ export default function GaleriePage() {
       : photos.filter((p) => p.category === activeFilter);
 
   const cta = ctaByCategory[activeFilter];
+
+  const goPrev = useCallback(() => {
+    setDirection("left");
+    setAnimKey((k) => k + 1);
+    setLightbox((i) => (i !== null && i > 0 ? i - 1 : filtered.length - 1));
+  }, [filtered.length]);
+
+  const goNext = useCallback(() => {
+    setDirection("right");
+    setAnimKey((k) => k + 1);
+    setLightbox((i) => (i !== null && i < filtered.length - 1 ? i + 1 : 0));
+  }, [filtered.length]);
+
+  useEffect(() => {
+    if (lightbox === null) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key === "ArrowRight") goNext();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [lightbox, goPrev, goNext]);
 
   return (
     <div>
@@ -194,7 +163,7 @@ export default function GaleriePage() {
               >
                 <button
                   onClick={() => setLightbox(i)}
-                  className="group relative aspect-[4/5] w-full cursor-pointer overflow-hidden rounded-2xl shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  className="group relative aspect-4/5 w-full cursor-pointer overflow-hidden rounded-2xl shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                 >
                   <Image
                     src={photo.src}
@@ -204,7 +173,7 @@ export default function GaleriePage() {
                     sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-4 pt-10 text-left opacity-0 transition-all duration-500 group-hover:opacity-100 max-sm:opacity-100">
+                  <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/70 via-black/30 to-transparent p-4 pt-10 text-left opacity-0 transition-all duration-500 group-hover:opacity-100 max-sm:opacity-100">
                     <p className="text-sm font-medium text-white">
                       {photo.alt}
                     </p>
@@ -235,23 +204,51 @@ export default function GaleriePage() {
             Photo de la galerie de L&apos;Artisane
           </DialogDescription>
           {lightbox !== null && filtered[lightbox] && (
-            <div>
-              <Image
-                src={filtered[lightbox].src}
-                alt={filtered[lightbox].alt}
-                width={1200}
-                height={800}
-                sizes="(max-width: 896px) 90vw, 56rem"
-                className="h-auto max-h-[75vh] w-full rounded-lg object-contain"
-              />
-              <div className="px-4 py-3">
-                <p className="text-sm font-medium text-white">
-                  {filtered[lightbox].alt}
-                </p>
-                <p className="mt-1 text-xs leading-relaxed text-white/60">
-                  {filtered[lightbox].description}
-                </p>
+            <div className="relative">
+              <div
+                key={animKey}
+                className="animate-lightbox-slide"
+                style={{
+                  "--slide-from": direction === "right" ? "40px" : "-40px",
+                } as React.CSSProperties}
+              >
+                <Image
+                  src={filtered[lightbox].src}
+                  alt={filtered[lightbox].alt}
+                  width={1200}
+                  height={800}
+                  sizes="(max-width: 896px) 90vw, 56rem"
+                  className="h-auto max-h-[75vh] w-full rounded-lg object-contain"
+                />
+
+                <div className="px-4 py-3">
+                  <p className="text-sm font-medium text-white">
+                    {filtered[lightbox].alt}
+                  </p>
+                  <p className="mt-1 text-xs leading-relaxed text-white/60">
+                    {filtered[lightbox].description}
+                    <span className="ml-2 text-white/30">
+                      {lightbox + 1}/{filtered.length}
+                    </span>
+                  </p>
+                </div>
               </div>
+
+              {/* Navigation */}
+              <button
+                onClick={goPrev}
+                className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/25"
+                aria-label="Photo précédente"
+              >
+                <IconChevronLeft className="h-5 w-5" stroke={1.5} />
+              </button>
+              <button
+                onClick={goNext}
+                className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/25"
+                aria-label="Photo suivante"
+              >
+                <IconChevronRight className="h-5 w-5" stroke={1.5} />
+              </button>
             </div>
           )}
           <DialogClose
@@ -269,7 +266,7 @@ export default function GaleriePage() {
       <section className="pb-20 md:pb-28">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <AnimateOnScroll animation="fade-in slide-in-from-bottom-4">
-            <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#f09433] via-[#dc2743] to-[#bc1888] shadow-lg">
+            <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-br from-[#f09433] via-[#dc2743] to-[#bc1888] shadow-lg">
               <IconBrandInstagram
                 className="h-7 w-7 text-white"
                 stroke={1.5}
@@ -278,17 +275,17 @@ export default function GaleriePage() {
             <p className="mt-5 text-sm leading-relaxed text-[#2d4a4a]/65">
               Suivez{" "}
               <a
-                href={siteConfig.social.instagram}
+                href={instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-medium text-[#2d4a4a] underline underline-offset-4 transition-colors hover:text-[#b8983e]"
               >
-                @{siteConfig.owner.instagram}
+                @{instagramHandle}
               </a>{" "}
               pour encore plus de réalisations.
             </p>
             <a
-              href={siteConfig.social.instagram}
+              href={instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#2d4a4a]/5 px-6 py-2.5 text-sm font-medium text-[#2d4a4a] transition-all duration-300 hover:bg-[#2d4a4a] hover:text-white"

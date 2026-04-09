@@ -1,0 +1,15 @@
+{
+  "nom": "Coupe & Brushing",
+  "description": "On prend le temps de comprendre votre style, la texture de vos cheveux et ce qui vous met en valeur au quotidien.",
+  "badge": "Sur mesure",
+  "icone": "scissors",
+  "prixDepart": 25,
+  "kydra": "",
+  "ordre": 0,
+  "items": [
+    { "nom": "Coupe femme", "prix": "38 €" },
+    { "nom": "Coupe homme", "prix": "25 €" },
+    { "nom": "Coupe + brushing", "prix": "52 €" },
+    { "nom": "Brushing seul", "prix": "28 €" }
+  ]
+}

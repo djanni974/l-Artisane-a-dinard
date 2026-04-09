@@ -4,9 +4,20 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { IconArrowRight } from "@tabler/icons-react";
-import { prestations } from "@/data/prestations";
+import { reader } from "@/lib/keystatic";
+import { iconMap, type IconSlug } from "@/lib/icon-map";
 
-export function PrestationsPreview() {
+export async function PrestationsPreview() {
+  const services = await reader.collections.services.all();
+  const prestations = services
+    .sort((a, b) => (a.entry.ordre ?? 0) - (b.entry.ordre ?? 0))
+    .map((s) => ({
+      icon: iconMap[s.entry.icone as IconSlug] || iconMap.scissors,
+      title: s.entry.nom,
+      description: s.entry.description,
+      badge: s.entry.badge,
+    }));
+
   return (
     <section id="prestations" className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">

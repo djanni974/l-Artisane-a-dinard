@@ -157,6 +157,21 @@
   }
 }
 
+@keyframes lightbox-slide {
+  from {
+    opacity: 0;
+    transform: translateX(var(--slide-from));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-lightbox-slide {
+  animation: lightbox-slide 0.3s ease-out both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
