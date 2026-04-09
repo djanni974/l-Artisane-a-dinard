@@ -8,7 +8,7 @@ import { GaleriePreview } from "@/components/sections/galerie-preview";
 import { CtaSection } from "@/components/sections/cta-section";
 import { Separator } from "@/components/ui/separator";
 import { IconBrandInstagram, IconArrowRight } from "@tabler/icons-react";
-import { siteConfig } from "@/data/site";
+import { getSalonInfo } from "@/lib/get-site-config";
 
 export const metadata: Metadata = {
   title:
@@ -24,8 +24,8 @@ function Marquee() {
   const text = item.repeat(4);
   return (
     <div className="relative overflow-hidden border-y border-[#b8983e]/15 bg-[#2d4a4a] py-5">
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-[#2d4a4a] to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-[#2d4a4a] to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-linear-to-r from-[#2d4a4a] to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-linear-to-l from-[#2d4a4a] to-transparent" />
       <div className="animate-marquee flex w-max whitespace-nowrap">
         <span className="font-serif text-[13px] tracking-[0.35em] text-[#b8983e] md:text-sm">
           {text}
@@ -38,10 +38,15 @@ function Marquee() {
   );
 }
 
-export default function HomePage() {
+export default async function HomePage() {
+  const salonInfo = await getSalonInfo();
+  const bookingHref = salonInfo?.booking.url || salonInfo?.owner.phoneHref || "tel:+33618385486";
+  const instagramUrl = salonInfo?.social.instagram || "https://www.instagram.com/l.artisane_a_dinard";
+  const instagramHandle = salonInfo?.owner.instagram || "l.artisane_a_dinard";
+
   return (
     <div className="animate-[page-enter_0.8s_ease-out]">
-      <Hero />
+      <Hero bookingHref={bookingHref} />
 
       <Marquee />
 
@@ -122,13 +127,13 @@ export default function HomePage() {
             <p className="text-sm text-[#2d4a4a]/65">
               Plus de réalisations sur{" "}
               <a
-                href={siteConfig.social.instagram}
+                href={instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 font-medium text-[#2d4a4a] underline underline-offset-4 transition-colors hover:text-[#b8983e]"
               >
                 <IconBrandInstagram className="h-5 w-5" stroke={2} />
-                @{siteConfig.owner.instagram}
+                @{instagramHandle}
               </a>
             </p>
           </AnimateOnScroll>

@@ -1,0 +1,12 @@
+{
+  "nom": "Coloration végétale",
+  "description": "Idéale pour les cuirs chevelus sensibles ou en transition depuis la chimique : pas d'ammoniaque, pas d'odeur forte — juste de la brillance et des reflets naturels. Gamme fabriquée en France.",
+  "badge": "Végétal",
+  "icone": "leaf",
+  "prixDepart": 55,
+  "kydra": "Pauline travaille avec la coloration Kydra Botanique — 91\u00a0% naturelle, aux 5 plantes tinctoriales françaises.",
+  "ordre": 2,
+  "items": [
+    { "nom": "Coloration 100\u00a0% végétale", "prix": "55 €" }
+  ]
+}

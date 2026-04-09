@@ -3,27 +3,20 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { IconArrowRight } from "@tabler/icons-react";
+import { reader } from "@/lib/keystatic";
 
-const photos = [
-  {
-    src: "/images/logo-gold.png",
-    alt: "Réalisation coloration — ambiance chaleureuse",
-  },
-  {
-    src: "/images/carte-visite.png",
-    alt: "Carte de visite Pauline Besnard",
-  },
-  {
-    src: "/images/logo-teal.png",
-    alt: "Logo L'Artisane sur fond vert profond",
-  },
-  {
-    src: "/images/logo-lavender.png",
-    alt: "Logo L'Artisane sur fond lavande",
-  },
-];
+export async function GaleriePreview() {
+  const realisations = await reader.collections.realisations.all();
+  const featured = realisations
+    .filter((r) => r.entry.enAvant)
+    .sort((a, b) => (a.entry.ordre ?? 0) - (b.entry.ordre ?? 0))
+    .slice(0, 4);
 
-export function GaleriePreview() {
+  const photos = featured.map((r) => ({
+    src: r.entry.image || "",
+    alt: r.entry.titre,
+  }));
+
   return (
     <section className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">

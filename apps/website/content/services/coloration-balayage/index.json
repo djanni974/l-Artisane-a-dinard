@@ -1,0 +1,15 @@
+{
+  "nom": "Coloration & Balayage",
+  "description": "Des reflets posés avec précision, qui bougent avec la lumière. Formules sans ammoniaque, adaptées à votre base naturelle.",
+  "badge": "Expertise",
+  "icone": "palette",
+  "prixDepart": 45,
+  "kydra": "Pauline travaille avec Kydra Jelly Gloss — kératine végétale + acide hyaluronique, +50\u00a0% de brillance.",
+  "ordre": 1,
+  "items": [
+    { "nom": "Coloration complète", "prix": "65 €" },
+    { "nom": "Balayage", "prix": "75 €" },
+    { "nom": "Mèches", "prix": "55 €" },
+    { "nom": "Retouche couleur", "prix": "45 €" }
+  ]
+}
