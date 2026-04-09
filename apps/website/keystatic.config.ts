@@ -1,5 +1,10 @@
 import { config, collection, singleton, fields } from "@keystatic/core";
 
+// En local, cwd = apps/website/ → paths relatifs à cwd
+// En cloud (prod), Keystatic commit relatif à la racine du repo → préfixe nécessaire
+const prefix =
+  process.env.NODE_ENV === "development" ? "" : "apps/website/";
+
 export default config({
   storage: process.env.NODE_ENV === "development" ? { kind: "local" } : { kind: "cloud" },
   cloud: { project: "l-artisane-a-dinard/l-artisane-a-dinard" },
@@ -7,7 +12,7 @@ export default config({
   singletons: {
     salonInfo: singleton({
       label: "Infos du salon",
-      path: "apps/website/content/salon-info",
+      path: `${prefix}content/salon-info`,
       schema: {
         nom: fields.text({ label: "Nom du salon" }),
         description: fields.text({
@@ -54,7 +59,7 @@ export default config({
 
     aPropos: singleton({
       label: "À propos",
-      path: "apps/website/content/a-propos",
+      path: `${prefix}content/a-propos`,
       schema: {
         titre: fields.text({ label: "Titre de la page" }),
         contenu: fields.markdoc({
@@ -63,7 +68,7 @@ export default config({
         }),
         photo: fields.image({
           label: "Photo de vous / du salon",
-          directory: "apps/website/public/images/a-propos",
+          directory: `${prefix}public/images/a-propos`,
           publicPath: "/images/a-propos",
         }),
       },
@@ -74,7 +79,7 @@ export default config({
     services: collection({
       label: "Services",
       slugField: "nom",
-      path: "apps/website/content/services/*",
+      path: `${prefix}content/services/*`,
       schema: {
         nom: fields.slug({ name: { label: "Nom du service" } }),
         description: fields.text({
@@ -126,12 +131,12 @@ export default config({
     realisations: collection({
       label: "Réalisations",
       slugField: "titre",
-      path: "apps/website/content/realisations/*",
+      path: `${prefix}content/realisations/*`,
       schema: {
         titre: fields.slug({ name: { label: "Titre" } }),
         image: fields.image({
           label: "Photo",
-          directory: "apps/website/public/images/galerie",
+          directory: `${prefix}public/images/galerie`,
           publicPath: "/images/galerie",
         }),
         description: fields.text({

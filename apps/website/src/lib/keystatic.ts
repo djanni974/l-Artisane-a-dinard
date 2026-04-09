@@ -2,8 +2,11 @@ import path from "path";
 import { createReader } from "@keystatic/core/reader";
 import config from "../../keystatic.config";
 
-// En monorepo, les chemins Keystatic sont relatifs à la racine du repo
-// process.cwd() = apps/website/, on remonte de 2 niveaux
-const repoRoot = path.resolve(process.cwd(), "../..");
+// En local, cwd = apps/website/, paths = content/...  → cwd suffit
+// En prod (cloud), paths = apps/website/content/...    → on remonte à la racine du repo
+const basePath =
+  process.env.NODE_ENV === "development"
+    ? process.cwd()
+    : path.resolve(process.cwd(), "../..");
 
-export const reader = createReader(repoRoot, config);
+export const reader = createReader(basePath, config);
