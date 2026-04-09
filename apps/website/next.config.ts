@@ -31,6 +31,19 @@ const securityHeaders = [
     key: "X-XSS-Protection",
     value: "1; mode=block",
   },
+  // Content Security Policy
+  {
+    key: "Content-Security-Policy",
+    value: [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://plausible.io",
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+      "font-src 'self' https://fonts.gstatic.com",
+      "img-src 'self' data: blob: https://maps.googleapis.com https://*.cdninstagram.com",
+      "frame-src 'self' https://www.google.com https://maps.google.com",
+      "connect-src 'self' https://plausible.io",
+    ].join("; "),
+  },
 ];
 
 const nextConfig: NextConfig = {
