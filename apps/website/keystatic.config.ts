@@ -7,7 +7,7 @@ export default config({
   singletons: {
     salonInfo: singleton({
       label: "Infos du salon",
-      path: "content/salon-info",
+      path: "apps/website/content/salon-info",
       schema: {
         nom: fields.text({ label: "Nom du salon" }),
         description: fields.text({
@@ -54,7 +54,7 @@ export default config({
 
     aPropos: singleton({
       label: "À propos",
-      path: "content/a-propos",
+      path: "apps/website/content/a-propos",
       schema: {
         titre: fields.text({ label: "Titre de la page" }),
         contenu: fields.markdoc({
@@ -63,7 +63,7 @@ export default config({
         }),
         photo: fields.image({
           label: "Photo de vous / du salon",
-          directory: "public/images/a-propos",
+          directory: "apps/website/public/images/a-propos",
           publicPath: "/images/a-propos",
         }),
       },
@@ -74,7 +74,7 @@ export default config({
     services: collection({
       label: "Services",
       slugField: "nom",
-      path: "content/services/*",
+      path: "apps/website/content/services/*",
       schema: {
         nom: fields.slug({ name: { label: "Nom du service" } }),
         description: fields.text({
@@ -126,12 +126,12 @@ export default config({
     realisations: collection({
       label: "Réalisations",
       slugField: "titre",
-      path: "content/realisations/*",
+      path: "apps/website/content/realisations/*",
       schema: {
         titre: fields.slug({ name: { label: "Titre" } }),
         image: fields.image({
           label: "Photo",
-          directory: "public/images/galerie",
+          directory: "apps/website/public/images/galerie",
           publicPath: "/images/galerie",
         }),
         description: fields.text({
