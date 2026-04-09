@@ -1,0 +1,12 @@
+nom: Coupe & Brushing
+badge: Sur mesure
+icone: scissors
+prixDepart: 25
+ordre: 0
+items:
+  - nom: Coupe femme
+    prix: 38 €
+  - nom: Coupe homme
+    prix: 25 €
+  - nom: coupe + brusning
+    prix: 52 €
