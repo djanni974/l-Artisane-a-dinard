@@ -15,7 +15,7 @@ import { getCalLink } from "@/lib/booking";
 import { getSalonInfo } from "@/lib/get-site-config";
 
 export const metadata: Metadata = {
-  title: "Contact & Réservation — 1 Place de Newquay",
+  title: "Contact & Réservation : 1 Place de Newquay",
   description:
     "Prenez rendez-vous en ligne ou par téléphone au L'Artisane à Dinard. 1 Place de Newquay, 35800 Dinard. Bilan capillaire gratuit à la première visite.",
 };
@@ -35,7 +35,7 @@ export default async function ContactPage() {
               Contact
             </p>
             <h1 className="font-serif text-3xl font-light leading-snug md:text-4xl lg:text-5xl">
-              Prenez rendez-vous — en ligne ou par téléphone.
+              Prenez rendez-vous : en ligne ou par téléphone.
             </h1>
           </AnimateOnScroll>
         </div>
@@ -76,7 +76,7 @@ export default async function ContactPage() {
       <section className="pb-16 md:pb-20">
         <div className="mx-auto max-w-4xl px-6">
           <div className="grid gap-8 md:grid-cols-2">
-            {/* Colonne gauche — Contact */}
+            {/* Colonne gauche : Contact */}
             <AnimateOnScroll animation="fade-in slide-in-from-left-8">
               <div className="rounded-2xl bg-white p-8 shadow-sm">
                 <p className="mb-6 text-[10px] font-medium uppercase tracking-[0.25em] text-[#b8983e]">
@@ -124,7 +124,7 @@ export default async function ContactPage() {
               </div>
             </AnimateOnScroll>
 
-            {/* Colonne droite — Horaires */}
+            {/* Colonne droite : Horaires */}
             <AnimateOnScroll
               animation="fade-in slide-in-from-right-8"
               delay="delay-150"

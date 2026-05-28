@@ -114,7 +114,7 @@ export function GalleryContent({
             Le travail parle de lui-même.
           </h1>
           <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-[#2d4a4a]/65">
-            Colorations végétales, soins naturels, ambiance du salon —
+            Colorations végétales, soins naturels, ambiance du salon :
             découvrez le savoir-faire artisanal de Pauline.
           </p>
         </div>

@@ -17,7 +17,7 @@ export async function GET() {
         <div style={{ position: "absolute", bottom: 48, display: "flex", alignItems: "center", gap: 16, fontSize: 14, color: "#2d4a4a", opacity: 0.5 }}>
           <span>1 Place de Newquay, 35800 Dinard</span>
           <span style={{ color: "#b8983e" }}>•</span>
-          <span>Pauline Besnard — Coloriste experte</span>
+          <span>Pauline Besnard : Coloriste experte</span>
         </div>
       </div>
     ),

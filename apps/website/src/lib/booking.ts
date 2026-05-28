@@ -8,7 +8,7 @@
  *  - cal.com/...
  *
  * Retourne null si l'URL est vide ou n'est pas une URL Cal.com reconnue
- * (ex: domaine personnalisé) — dans ce cas, on garde le CTA externe classique.
+ * (ex: domaine personnalisé) : dans ce cas, on garde le CTA externe classique.
  */
 export function getCalLink(url: string | undefined | null): string | null {
   if (!url) return null;

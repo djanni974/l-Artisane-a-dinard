@@ -44,7 +44,7 @@ export function Hero({
               </div>
               <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 fill-mode-[both]">
                 <p className="font-serif text-xl tracking-wide text-[#2d4a4a]/70 md:text-2xl">
-                  Pauline Besnard — coloriste experte
+                  Pauline Besnard : coloriste experte
                 </p>
               </div>
             </div>

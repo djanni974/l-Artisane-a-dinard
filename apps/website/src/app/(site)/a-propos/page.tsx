@@ -10,7 +10,7 @@ import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { CtaSection } from "@/components/sections/cta-section";
 
 export const metadata: Metadata = {
-  title: "À propos — Pauline Besnard, coloriste experte à Dinard",
+  title: "À propos : Pauline Besnard, coloriste experte à Dinard",
   description:
     "Découvrez Pauline Besnard, coloriste experte avec 20 ans d'expérience. Spécialisée en coloration végétale et soins naturels à Dinard.",
 };
@@ -104,7 +104,7 @@ export default function AProposPage() {
               </p>
               <div className="mx-auto mt-6 h-px w-12 bg-[#b8983e]/40" />
               <footer className="mt-6 text-sm font-medium text-[#b8983e]">
-                — Pauline Besnard
+                Pauline Besnard
               </footer>
             </blockquote>
           </AnimateOnScroll>
@@ -160,7 +160,7 @@ export default function AProposPage() {
       <CtaSection
         title="Envie de découvrir le salon ?"
         subtitle="Prenez soin de vous."
-        description="30 minutes pour faire le point sur vos cheveux, comprendre vos envies et vous proposer un soin adapté — bilan capillaire offert."
+        description="30 minutes pour faire le point sur vos cheveux, comprendre vos envies et vous proposer un soin adapté : bilan capillaire offert."
         buttonText="Prendre rendez-vous"
         secondaryLink={{ label: "Voir les prestations", href: "/prestations" }}
       />

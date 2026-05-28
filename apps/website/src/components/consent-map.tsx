@@ -26,7 +26,7 @@ export function ConsentMap() {
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="L'Artisane à Dinard — 1 Place de Newquay"
+          title="L'Artisane à Dinard : 1 Place de Newquay"
           className="h-[200px] w-full md:h-[300px]"
         />
       </div>

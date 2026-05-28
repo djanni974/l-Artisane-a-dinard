@@ -26,7 +26,7 @@ export async function Footer() {
 
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-10 md:grid-cols-3 md:gap-8">
-          {/* Colonne 1 — Logo & tagline */}
+          {/* Colonne 1 : Logo & tagline */}
           <div className="flex flex-col items-center md:items-start">
             <Image
               src="/images/logo.png"
@@ -44,7 +44,7 @@ export async function Footer() {
             </p>
           </div>
 
-          {/* Colonne 2 — Navigation */}
+          {/* Colonne 2 : Navigation */}
           <div className="flex flex-col items-center md:items-start">
             <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.25em] text-[#b8983e]">
               Navigation
@@ -80,7 +80,7 @@ export async function Footer() {
             </nav>
           </div>
 
-          {/* Colonne 3 — Contact */}
+          {/* Colonne 3 : Contact */}
           <div className="flex flex-col items-center md:items-start">
             <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.25em] text-[#b8983e]">
               Contact
@@ -119,7 +119,7 @@ export async function Footer() {
 
         <div className="flex flex-col items-center gap-2">
           <p className="text-center text-[10px] tracking-wide text-white/45">
-            © 2026 L&apos;Artisane à Dinard — Tous droits réservés — Site
+            © 2026 L&apos;Artisane à Dinard · Tous droits réservés · Site
             réalisé par{" "}
             <a
               href={developerUrl}

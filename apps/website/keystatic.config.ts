@@ -36,9 +36,9 @@ export default config({
           description:
             "URL complète Cal.com, ex: https://cal.com/lartisane-dinard/coupe-couleur",
         }),
-        adresseRue: fields.text({ label: "Adresse — Rue" }),
-        adresseVille: fields.text({ label: "Adresse — Ville" }),
-        adresseCodePostal: fields.text({ label: "Adresse — Code postal" }),
+        adresseRue: fields.text({ label: "Adresse : Rue" }),
+        adresseVille: fields.text({ label: "Adresse : Ville" }),
+        adresseCodePostal: fields.text({ label: "Adresse : Code postal" }),
         horaires: fields.array(
           fields.object({
             jour: fields.text({ label: "Jour" }),

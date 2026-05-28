@@ -84,14 +84,14 @@ async function fetchWithRetry(
   for (let attempt = 0; attempt < maxRetries; attempt++) {
     try {
       const res = await fetch(url, options);
-      // Don't retry on client errors (4xx) — only on server errors (5xx) or network issues
+      // Don't retry on client errors (4xx) : only on server errors (5xx) or network issues
       if (res.ok || (res.status >= 400 && res.status < 500)) {
         return res;
       }
-      // Server error — retry
+      // Server error : retry
       lastError = new Error(`Resend API returned ${res.status}`);
     } catch (err) {
-      // Network error — retry
+      // Network error : retry
       lastError = err instanceof Error ? err : new Error(String(err));
     }
 
@@ -114,7 +114,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Rate limiting (skip if Upstash not configured — dev mode)
+    // Rate limiting (skip if Upstash not configured : dev mode)
     const rateLimit = getContactRateLimit();
     if (rateLimit) {
       const headersList = await headers();
@@ -169,10 +169,10 @@ export async function POST(request: Request) {
         Authorization: `Bearer ${resendKey}`,
       },
       body: JSON.stringify({
-        from: `L'Artisane — Site Web <onboarding@resend.dev>`,
+        from: `L'Artisane : Site Web <onboarding@resend.dev>`,
         to: [recipientEmail],
         reply_to: email,
-        subject: `Nouveau message de ${safeName} — lartisane-dinard.fr`,
+        subject: `Nouveau message de ${safeName} : lartisane-dinard.fr`,
         html: `
           <div style="font-family: -apple-system, 'Segoe UI', sans-serif; max-width: 560px; margin: 0 auto; background: #ffffff;">
             <!-- Header -->
