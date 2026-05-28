@@ -9,7 +9,10 @@ import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { ContactForm } from "@/components/contact-form";
 import { ConsentMap } from "@/components/consent-map";
 import { CtaButton } from "@/components/layout/cta-button";
+import { CalBookingEmbed } from "@/components/sections/cal-booking-embed";
 import { siteConfig } from "@/data/site";
+import { getCalLink } from "@/lib/booking";
+import { getSalonInfo } from "@/lib/get-site-config";
 
 export const metadata: Metadata = {
   title: "Contact & Réservation — 1 Place de Newquay",
@@ -17,7 +20,11 @@ export const metadata: Metadata = {
     "Prenez rendez-vous en ligne ou par téléphone au L'Artisane à Dinard. 1 Place de Newquay, 35800 Dinard. Bilan capillaire gratuit à la première visite.",
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const salonInfo = await getSalonInfo();
+  const bookingUrl = salonInfo?.booking.url || siteConfig.booking.url;
+  const calLink = getCalLink(bookingUrl);
+
   return (
     <div>
       {/* ═══════════════════════ HEADER ═══════════════════════ */}
@@ -44,6 +51,17 @@ export default function ContactPage() {
           </AnimateOnScroll>
         </div>
       </section>
+
+      {/* ═══════════════════════ CALENDRIER CAL.COM ═══════════════════════ */}
+      {calLink && (
+        <section className="pb-16 md:pb-20">
+          <div className="mx-auto max-w-4xl px-6">
+            <AnimateOnScroll animation="fade-in slide-in-from-bottom-4">
+              <CalBookingEmbed calLink={calLink} />
+            </AnimateOnScroll>
+          </div>
+        </section>
+      )}
 
       {/* ═══════════════════════ FORMULAIRE DE CONTACT ═══════════════════════ */}
       <section className="pb-16 md:pb-20">

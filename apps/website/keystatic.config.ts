@@ -32,7 +32,9 @@ export default config({
           description: "Sans le @, ex: l.artisane_a_dinard",
         }),
         bookingUrl: fields.url({
-          label: "Lien de réservation (Fresha)",
+          label: "Lien de réservation (Cal.com)",
+          description:
+            "URL complète Cal.com, ex: https://cal.com/lartisane-dinard/coupe-couleur",
         }),
         adresseRue: fields.text({ label: "Adresse — Rue" }),
         adresseVille: fields.text({ label: "Adresse — Ville" }),
