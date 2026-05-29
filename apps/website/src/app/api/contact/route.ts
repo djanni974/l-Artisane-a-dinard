@@ -169,7 +169,7 @@ export async function POST(request: Request) {
         Authorization: `Bearer ${resendKey}`,
       },
       body: JSON.stringify({
-        from: `L'Artisane : Site Web <onboarding@resend.dev>`,
+        from: `L'Artisane - Site Web <onboarding@resend.dev>`,
         to: [recipientEmail],
         reply_to: email,
         subject: `Nouveau message de ${safeName} : lartisane-dinard.fr`,

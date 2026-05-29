@@ -26,7 +26,6 @@ export function CalBookingEmbed({ calLink }: CalBookingEmbedProps) {
           branding: { brandColor: "#b8983e" },
         },
         hideEventTypeDetails: false,
-        layout: "month_view",
       });
     })();
   }, []);
