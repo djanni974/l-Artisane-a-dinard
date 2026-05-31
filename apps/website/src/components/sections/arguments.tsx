@@ -12,7 +12,7 @@ const items = [
   {
     icon: IconScissors,
     title: "20 ans d\u2019expertise",
-    text: "Pauline a passé 20 ans à affiner son art — coloration, balayage et soin capillaire.",
+    text: "Pauline a passé 20 ans à affiner son art : coloration, balayage et soin capillaire.",
     delay: "delay-150",
   },
   {
@@ -75,7 +75,7 @@ export function Arguments() {
               <span className="h-3 w-px bg-[#2d4a4a]/15" />
               <Image
                 src="/images/kydra-logo.png"
-                alt="Kydra Le Salon — produits professionnels éco-conçus"
+                alt="Kydra Le Salon : produits professionnels éco-conçus"
                 width={80}
                 height={80}
                 className="h-8 w-8 object-contain opacity-45"

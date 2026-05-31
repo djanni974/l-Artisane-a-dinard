@@ -22,8 +22,8 @@ export const siteConfig = {
     full: "1 Place de Newquay, 35800 Dinard",
   },
   booking: {
-    url: "", // À remplir avec le lien Fresha de Pauline
-    provider: "Fresha" as const,
+    url: "", // À remplir avec le lien Cal.com de Pauline (ex: https://cal.com/lartisane-dinard/coupe)
+    provider: "Cal.com" as const,
   },
   analytics: {
     plausibleDomain: "lartisane-dinard.fr",

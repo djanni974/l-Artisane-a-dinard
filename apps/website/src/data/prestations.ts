@@ -5,7 +5,7 @@ import {
   IconDroplet,
 } from "@tabler/icons-react";
 
-// ⚠️ TOUS LES PRIX SONT DES PLACEHOLDERS — à remplacer après le RDV du 25 mars.
+// ⚠️ TOUS LES PRIX SONT DES PLACEHOLDERS : à remplacer après le RDV du 25 mars.
 
 export const prestations = [
   {
@@ -32,7 +32,7 @@ export const prestations = [
     badge: "Expertise",
     startingPrice: 45,
     highlight: null,
-    kydra: "Pauline travaille avec Kydra Jelly Gloss — kératine végétale + acide hyaluronique, +50\u00a0% de brillance.",
+    kydra: "Pauline travaille avec Kydra Jelly Gloss : kératine végétale + acide hyaluronique, +50\u00a0% de brillance.",
     items: [
       { name: "Coloration complète", price: "65 €" },
       { name: "Balayage", price: "75 €" },
@@ -44,11 +44,11 @@ export const prestations = [
     icon: IconLeaf,
     title: "Coloration végétale",
     description:
-      "Idéale pour les cuirs chevelus sensibles ou en transition depuis la chimique : pas d'ammoniaque, pas d'odeur forte — juste de la brillance et des reflets naturels. Gamme fabriquée en France.",
+      "Idéale pour les cuirs chevelus sensibles ou en transition depuis la chimique : pas d'ammoniaque, pas d'odeur forte : juste de la brillance et des reflets naturels. Gamme fabriquée en France.",
     badge: "Végétal",
     startingPrice: 55,
     highlight: null,
-    kydra: "Pauline travaille avec la coloration Kydra Botanique — 91\u00a0% naturelle, aux 5 plantes tinctoriales françaises.",
+    kydra: "Pauline travaille avec la coloration Kydra Botanique : 91\u00a0% naturelle, aux 5 plantes tinctoriales françaises.",
     items: [{ name: "Coloration 100\u00a0% végétale", price: "55 €" }],
   },
   {
@@ -59,7 +59,7 @@ export const prestations = [
     badge: "Sur mesure",
     startingPrice: 20,
     highlight: null,
-    kydra: "Pauline travaille avec les Élixirs Botaniques Kydra — jusqu'à 95\u00a0% naturels, personnalisés selon votre diagnostic capillaire.",
+    kydra: "Pauline travaille avec les Élixirs Botaniques Kydra : jusqu'à 95\u00a0% naturels, personnalisés selon votre diagnostic capillaire.",
     items: [
       { name: "Soin nutrition", price: "25 €" },
       { name: "Soin réparateur", price: "30 €" },

@@ -10,7 +10,7 @@ import { iconMap, type IconSlug } from "@/lib/icon-map";
 
 export const metadata: Metadata = {
   title:
-    "Prestations — Coupe, coloration végétale, soins naturels | L'Artisane Dinard",
+    "Prestations : Coupe, coloration végétale, soins naturels | L'Artisane Dinard",
   description:
     "Découvrez toutes les prestations de L'Artisane à Dinard : coupe, coloration végétale sans ammoniaque, balayage, soins capillaires bio. Bilan capillaire gratuit.",
 };
@@ -189,7 +189,7 @@ export default async function PrestationsPage() {
                 <span className="font-medium text-[#2d4a4a]">
                   Tarifs indicatifs
                 </span>{" "}
-                — les prix peuvent varier selon la longueur et la nature de vos
+                : les prix peuvent varier selon la longueur et la nature de vos
                 cheveux. Un diagnostic capillaire vous est offert lors de
                 votre première visite.
               </p>
@@ -211,7 +211,7 @@ export default async function PrestationsPage() {
               >
                 <Image
                   src="/images/kydra-logo.png"
-                  alt="Kydra Le Salon — produits professionnels éco-conçus"
+                  alt="Kydra Le Salon : produits professionnels éco-conçus"
                   width={180}
                   height={60}
                   className="h-12 w-auto"
@@ -220,9 +220,9 @@ export default async function PrestationsPage() {
               <div>
                 <p className="text-sm leading-relaxed text-[#2d4a4a]/70">
                   <span className="font-medium text-[#2d4a4a]">
-                    Salon partenaire Kydra Le Salon
+                    Salon partenaire Kydra Le Salon.
                   </span>{" "}
-                  — concrètement, pour vous, ça veut dire : moins d&apos;odeur,
+                  Concrètement, pour vous, ça veut dire : moins d&apos;odeur,
                   plus de brillance, et des formules plus douces pour le cuir
                   chevelu. Tous les produits sont fabriqués en France, certifiés
                   ECOCERT, vegan et sans ammoniaque.
@@ -244,7 +244,7 @@ export default async function PrestationsPage() {
       <CtaSection
         title="Bilan capillaire offert"
         subtitle="30 minutes pour faire le point sur vos cheveux."
-        description="Pauline prend le temps de comprendre votre routine, vos envies et la nature de vos cheveux — sans engagement."
+        description="Pauline prend le temps de comprendre votre routine, vos envies et la nature de vos cheveux : sans engagement."
         buttonText="Prendre rendez-vous"
       />
     </div>

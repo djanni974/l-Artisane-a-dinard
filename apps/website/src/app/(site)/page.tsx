@@ -59,7 +59,7 @@ export default async function HomePage() {
             <div className="relative min-h-[450px] md:min-h-[500px]">
               <Image
                 src="/images/logo-hair-golden.png"
-                alt="L'Artisane — sublimer votre couleur naturellement"
+                alt="L'Artisane : sublimer votre couleur naturellement"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover object-center"

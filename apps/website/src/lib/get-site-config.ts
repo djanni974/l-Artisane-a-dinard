@@ -25,7 +25,7 @@ export async function getSalonInfo() {
     },
     booking: {
       url: info.bookingUrl || "",
-      provider: "Fresha" as const,
+      provider: "Cal.com" as const,
     },
     social: {
       instagram: `https://www.instagram.com/${info.instagram}`,

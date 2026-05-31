@@ -24,7 +24,7 @@ export default function MentionsLegalesPage() {
             <p>
               {siteConfig.name}
               <br />
-              {siteConfig.owner.name} — {siteConfig.owner.title}
+              {siteConfig.owner.name} : {siteConfig.owner.title}
               <br />
               {siteConfig.legal.status}
               <br />

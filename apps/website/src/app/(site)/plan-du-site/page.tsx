@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = {
   title: "Plan du site",
   description:
-    "Plan du site L'Artisane à Dinard — retrouvez toutes les pages du site.",
+    "Plan du site L'Artisane à Dinard : retrouvez toutes les pages du site.",
   robots: { index: false, follow: true },
 };
 
