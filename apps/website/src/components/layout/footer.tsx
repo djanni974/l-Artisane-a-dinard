@@ -130,6 +130,17 @@ export async function Footer() {
               {developerName}
             </a>
           </p>
+          <p className="text-center text-[10px] tracking-wide text-white/45">
+            Site concept réalisé par {developerName}, non officiel. Pour
+            réserver :{" "}
+            <a
+              href={phoneHref}
+              className="transition-colors hover:text-white/50"
+            >
+              {phone}
+            </a>
+            .
+          </p>
           <a
             href="/keystatic"
             className="text-[9px] tracking-wide text-white/20 transition-colors hover:text-white/40"

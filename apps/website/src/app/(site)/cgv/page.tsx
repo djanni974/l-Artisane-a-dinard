@@ -42,7 +42,7 @@ export default function CGVPage() {
 
           <section>
             <h2 className="mb-3 font-serif text-xl font-medium text-[#2d4a4a]">Article 4 : Prise de rendez-vous</h2>
-            <p>Les rendez-vous peuvent être pris par téléphone au <a href={siteConfig.owner.phoneHref} className="underline underline-offset-4 transition-colors hover:text-[#b8983e]">{siteConfig.owner.phone}</a>, directement au salon, ou via la plateforme de réservation en ligne accessible depuis le site internet. La prise de rendez-vous vaut acceptation des présentes CGV.</p>
+            <p>Les rendez-vous peuvent être pris par téléphone au <a href={siteConfig.owner.phoneHref} className="underline underline-offset-4 transition-colors hover:text-[#b8983e]">{siteConfig.owner.phone}</a> ou directement au salon. La prise de rendez-vous vaut acceptation des présentes CGV.</p>
             <p className="mt-3">Les clients sans rendez-vous sont accueillis dans la mesure des disponibilités du salon.</p>
           </section>
 

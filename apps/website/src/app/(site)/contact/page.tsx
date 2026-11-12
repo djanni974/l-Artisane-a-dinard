@@ -6,7 +6,6 @@ import {
   IconClock,
 } from "@tabler/icons-react";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
-import { ContactForm } from "@/components/contact-form";
 import { ConsentMap } from "@/components/consent-map";
 import { CtaButton } from "@/components/layout/cta-button";
 import { CalBookingEmbed } from "@/components/sections/cal-booking-embed";
@@ -17,7 +16,7 @@ import { getSalonInfo } from "@/lib/get-site-config";
 export const metadata: Metadata = {
   title: "Contact & Réservation, 1 Place de Newquay",
   description:
-    "Prenez rendez-vous en ligne ou par téléphone au L'Artisane à Dinard. 1 Place de Newquay, 35800 Dinard. Bilan capillaire gratuit à la première visite.",
+    "Prenez rendez-vous par téléphone au L'Artisane à Dinard. 1 Place de Newquay, 35800 Dinard. Bilan capillaire gratuit à la première visite.",
 };
 
 export default async function ContactPage() {
@@ -35,7 +34,7 @@ export default async function ContactPage() {
               Contact
             </p>
             <h1 className="font-serif text-3xl font-light leading-snug md:text-4xl lg:text-5xl">
-              Prenez rendez-vous en ligne ou par téléphone.
+              Prenez rendez-vous par téléphone.
             </h1>
           </AnimateOnScroll>
         </div>
@@ -46,7 +45,7 @@ export default async function ContactPage() {
         <div className="mx-auto max-w-md px-6 text-center">
           <AnimateOnScroll animation="fade-in zoom-in-95">
             <CtaButton className="shadow-lg text-base">
-              Réserver en ligne
+              Appeler le salon
             </CtaButton>
           </AnimateOnScroll>
         </div>
@@ -63,11 +62,37 @@ export default async function ContactPage() {
         </section>
       )}
 
-      {/* ═══════════════════════ FORMULAIRE DE CONTACT ═══════════════════════ */}
+      {/* ═══════════════════════ CONTACT DIRECT ═══════════════════════ */}
+      {/* Site concept : pas de formulaire, toute demande va au salon. */}
+      {/* Le composant ContactForm reste dans le repo pour la version officielle. */}
       <section className="pb-16 md:pb-20">
         <div className="mx-auto max-w-xl px-6">
           <AnimateOnScroll animation="fade-in slide-in-from-bottom-4">
-            <ContactForm />
+            <div className="rounded-2xl bg-white p-8 text-center shadow-sm">
+              <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.25em] text-[#b8983e]">
+                Une question ?
+              </p>
+              <p className="font-serif text-xl font-light leading-relaxed text-[#2d4a4a] md:text-2xl">
+                Pour toute demande, appelez Pauline au{" "}
+                <a
+                  href={siteConfig.owner.phoneHref}
+                  className="whitespace-nowrap font-medium lining-nums underline decoration-[#b8983e]/60 underline-offset-[6px] transition-colors hover:text-[#b8983e]"
+                >
+                  {siteConfig.owner.phone}
+                </a>
+                .
+              </p>
+              <a
+                href={siteConfig.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex items-center gap-2 text-sm text-[#2d4a4a]/70 transition-colors hover:text-[#E1306C]"
+                aria-label="Contacter L'Artisane sur Instagram"
+              >
+                <IconBrandInstagram className="h-4 w-4" stroke={1.5} />
+                @{siteConfig.owner.instagram}
+              </a>
+            </div>
           </AnimateOnScroll>
         </div>
       </section>

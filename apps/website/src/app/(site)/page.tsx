@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title:
     "L'Artisane à Dinard | Salon de coiffure naturel & coloration végétale",
   description:
-    "Salon de coiffure artisanal à Dinard. Pauline Besnard, coloriste experte spécialisée en coloration végétale, balayage et soins naturels. Réservation en ligne.",
+    "Salon de coiffure artisanal à Dinard. Pauline Besnard, coloriste experte spécialisée en coloration végétale, balayage et soins naturels.",
 };
 
 /* ─── Bandeau défilant ─── */

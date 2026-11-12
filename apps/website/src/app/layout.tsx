@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | L'Artisane à Dinard",
   },
   description:
-    "Salon de coiffure artisanal à Dinard. Pauline Besnard, coloriste experte spécialisée en coloration végétale, balayage et soins naturels. Réservation en ligne.",
+    "Salon de coiffure artisanal à Dinard. Pauline Besnard, coloriste experte spécialisée en coloration végétale, balayage et soins naturels.",
   openGraph: {
     type: "website",
     locale: "fr_FR",
