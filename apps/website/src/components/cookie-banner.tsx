@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useSyncExternalStore } from "react";
+import { useCallback, useSyncExternalStore } from "react";
 import Link from "next/link";
 
 const COOKIE_KEY = "cookie-consent";
@@ -50,22 +50,30 @@ export function useThirdPartyCookiesAllowed(): boolean {
 }
 
 // ─── Banner component ───────────────────────────────────────
-export function CookieBanner() {
-  const [mounted, setMounted] = useState(false);
-  const [visible, setVisible] = useState(false);
+function subscribeNoop() {
+  return () => {};
+}
 
-  useEffect(() => {
-    setMounted(true);
-    if (!getConsent()) setVisible(true);
-  }, []);
+/** False on the server and during hydration, true once mounted. */
+function useHydrated(): boolean {
+  return useSyncExternalStore(
+    subscribeNoop,
+    () => true,
+    () => false
+  );
+}
+
+export function CookieBanner() {
+  const hydrated = useHydrated();
+  const consent = useCookieConsent();
 
   const handleChoice = useCallback((acceptAll: boolean) => {
     localStorage.setItem(COOKIE_KEY, acceptAll ? "all" : "essential");
-    setVisible(false);
     notify();
   }, []);
 
-  if (!mounted || !visible) return null;
+  // Never rendered on the server: the consent lives in localStorage.
+  if (!hydrated || consent !== null) return null;
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 p-4 animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-[both]">

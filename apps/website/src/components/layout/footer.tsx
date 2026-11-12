@@ -141,12 +141,13 @@ export async function Footer() {
             </a>
             .
           </p>
-          <a
+          <Link
             href="/keystatic"
+            prefetch={false}
             className="text-[9px] tracking-wide text-white/20 transition-colors hover:text-white/40"
           >
             Administration
-          </a>
+          </Link>
         </div>
       </div>
     </footer>
